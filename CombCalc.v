@@ -1,5 +1,5 @@
 // File Name: CombCalc.v
-module  CombCalc(
+module #(parameter W = 16) CombCalc(
 	input [2:0] OP,
 	input signed [3:0] A, B,
 	output signed [3:0] R,
@@ -24,19 +24,19 @@ wire addAB, addBA, subAB, subBA, absA, absB;
 // 000 --> A + B
 assign addAB = (~OP[2]) & (~OP[1]) & (~OP[0]);
 // 001 --> A - B
-assign subAB = (OP[2] & OP[1] & OP[0]);
+assign subAB = (~OP[2]) & (~OP[1]) & (OP[0]);
 
 // 01_ --> abs(B)
-assign absB = (OP[2] & ~OP[1]); 
+assign absB = (~OP[2]) & (OP[1]); 
 
 // 100 --> B + A
-assign addBA = (OP[2] & ~OP[1] & ~OP[0]); 
+assign addBA = (OP[2]) & (~OP[1]) & (~OP[0]); 
 
 // 101 --> B - A
-assign subBA = (OP[2] & ~OP[1] & OP[0]);
+assign subBA = (OP[2]) & (~OP[1]) & (OP[0]);
 
 // 11_ --> abs(A)
-assign absA = (OP[2] & OP[1]); 
+assign absA = (OP[2]) & (OP[1]); 
 
 // Depending on the opcode, determine operand (use ternary here)
 
