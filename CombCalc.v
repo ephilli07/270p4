@@ -19,30 +19,30 @@ wire ovfOutput;
 // Set of operations
 wire addAB, addBA, subAB, subBA, absA, absB;
 
-
-
 // Operation code is defined by OP [2:0] which is actually OP[2] OP[1] OP[0] 
 
 // 000 --> A + B
 assign addAB = (~OP[2]) & (~OP[1]) & (~OP[0]);
 // 001 --> A - B
-assign subAB = ();
+assign subAB = (OP[2] & OP[1] & OP[0]);
 
 // 01_ --> abs(B)
-// TODO
-assign absB; 
+assign absB = (OP[2] & ~OP[1]); 
 
 // 100 --> B + A
-// TODO
-assign addBA = (); 
+assign addBA = (OP[2] & ~OP[1] & ~OP[0]); 
 
 // 101 --> B - A
-assign subBA = ();
+assign subBA = (OP[2] & ~OP[1] & OP[0]);
 
 // 11_ --> abs(A)
-assign absA = (); 
+assign absA = (OP[2] & OP[1]); 
 
-// Depending on the opcode, determine output (use ternary here)
+// Depending on the opcode, determine operand (use ternary here)
+
+
+
+// Depending on operand, compute necessary
 assign R = ; 
 
 
