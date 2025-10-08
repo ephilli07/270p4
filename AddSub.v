@@ -38,6 +38,9 @@ module AddSub
 		end
 	endgenerate
 
+	// Computes R = A + B + 0 when c0 = 0
+	// Computes R = A + ~B + 1 when c0 = 1 
+
 
 // Overflow is determined 
 assign ovf = c[W] ^ c[W-1];
