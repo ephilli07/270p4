@@ -10,7 +10,7 @@ module AddSub
 	);
 	
 	wire [W:0] c;                            // Carry signals
-	
+	wire [W-1:0] mask; 
 	// For subtraction just add the opposite
 	wire[W-1:0] B_sub;
 
