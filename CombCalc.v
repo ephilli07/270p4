@@ -1,5 +1,5 @@
 // File Name: CombCalc.v
-module #(parameter W = 16) CombCalc(
+module CombCalc #(parameter W = 16)(
 	input [2:0] OP,
 	input signed [3:0] A, B,
 	output signed [3:0] R,
@@ -12,9 +12,7 @@ module #(parameter W = 16) CombCalc(
 // Prefix Circuit
 // Should choose operation based on opcode and pass into "R"
 
-// Need internal wires
-wire [W-1:0] operationOutput;
-wire ovfOutput; 
+// PICKING THE CORRECT OPERATION
 
 // Set of operations
 wire addAB, addBA, subAB, subBA, absA, absB;
@@ -38,25 +36,53 @@ assign subBA = (OP[2]) & (~OP[1]) & (OP[0]);
 // 11_ --> abs(A)
 assign absA = (OP[2]) & (OP[1]); 
 
+
+
+
+
+
+// ADDING AND SUBTRACTING
+
 // Depending on the opcode, determine operand (use ternary here)
+// When c0 = 1, subtract (subAB or subBA) 
 
+assign c0 = (subAB | subBA); 
 
+// Determine which inputs depending on order of operations
+wire inputA, inputB; 
 
-// Depending on operand, compute necessary
-assign R = ; 
+assign inputA = (addAB | subAB | absB) ?  A : B;
 
+assign inputB = B ? (addBA | subBA) ? B : A:
 
+// OP[2] OP[1] OP[0]
+// A + B  A B 0 
+// A - B A B 1
+// B + A B A 0
+// B - A B A 1
 
 // Instantiate a 4-bit Adder/Subtractor
 
+// Need internal wires
+wire [W-1:0] operationOutput;
+wire ovfOutput; 
+
 // c0 determines whether adding, subtracting, abs
+// Instantiate and do adder
 AddSub addSubMain(
-	.A(A),
-	.B(B), 
+	.A(inputA),
+	.B(inputB), 
 	.c0(c0), 
 	.R(operationOutput), 
 	.ovf(ovfOutput)
-
 );
+
+
+// ABSOLUTE VALUE 
+
+// In two's complement, negative if MSB is 1
+// Convert between then, flip (XOR) and add 1 (think use adder here)
+
+
 
 endmodule //  CombCalc
