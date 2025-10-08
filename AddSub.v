@@ -33,7 +33,7 @@ module AddSub
 				.b(B_sub[i]),
 				.cin(c[i]),
 				.s(R[i]), 
-				.cout(c[i + 1])
+				.cout(c[i + 1]) // The final element
 			);
 		end
 	endgenerate
