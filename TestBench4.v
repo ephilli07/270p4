@@ -63,39 +63,59 @@ SW = 7'b10001000;
 // A - B 001 
 // Basic subtract (5 - 2 = 3)
 KEY = 3'001;
-SW = 7'b001010010;
+SW = 7'b01010010;
 #20; 
-// Positive overflow 
+// Positive overflow (5 - - 4 = 9)
 KEY = 3'001;
-SW = 7'b10001000;
+SW = 7'b01011100;
 #20; 
-// Negative overflow
+// Negative overflow (-7 - 7 = -14)
 KEY = 3'001;
-SW = 7'b10001000;
+SW = 7'b10010111;
 #20; 
-// Break even 
+// Break even (-7 - -7 = 0)
 KEY = 3'001;
-SW = 7'b10001000;
+SW = 7'b10011001;
 #20; 
 
 // B - A 101
-// Basic subtract 
+// Basic subtract (5 - 2 = 3)
 KEY = 3'101;
-SW = 7'b10001000;
+SW = 7'b01010010;
 #20; 
-
-// Positive overflow 
-// Negative overflow
-// Break even 
+// Positive overflow (5 - - 4 = 9)
+KEY = 3'101;
+SW = 7'b01011100;
+#20; 
+// Negative overflow (-7 - 7 = -14)
+KEY = 3'101;
+SW = 7'b10010111;
+#20; 
+// Break even (-7 - -7 = 0)
+KEY = 3'101;
+SW = 7'b10011001;
+#20; 
 
 // ABSOLUTE VALUE TESTS
 
-// Basic  
-// Positive  
-// Negative 
-// Zero
+// absB with 010
+// Basic  abs(-8)
+KEY = 3b'010
+SW = 
+#20;
+// Positive  abs(7)
+
+// Negative abs(-4)
+
+// Zero abs(0)
+
 // Overflow
 
+// abs with 011
+
+
+// absA with 110 
+// absA with 111
 // Basic  
 // Positive  
 // Negative 
