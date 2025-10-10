@@ -20,21 +20,26 @@ localparam [6:0] allSegOff = 7'b1111111;
 // Instantiate the number displays 
 // Need one TC4to7SEG per display
 
-wire signA, signB, signR, magnitudeA, magnitudeB, magnitudeR; 
+wire [6:0] signA;
+wire [6:0] signB;
+wire [6:0] signR;
+wire [6:0] magnitudeA;
+wire [6:0] magnitudeB;
+wire [6:0] magnitudeR; 
 
-TC4to7SEG A(
+TC4to7SEG Ainst(
 	.N(SW[7:4]), 
 	.Sign(signA), 
 	.Magnitude(magnitudeA)
 ); 
 
-TC4to7SEG B(
+TC4to7SEG Binst(
 	.N(SW[3:0]), 
 	.Sign(signB), 
 	.Magnitude(magnitudeB)
 ); 
 
-TC4to7SEG R(
+TC4to7SEG Rinst(
 	.N(R), 
 	.Sign(signR), 
 	.Magnitude(magnitudeR)
