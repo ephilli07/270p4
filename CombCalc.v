@@ -49,7 +49,7 @@ assign absA = (OP[2]) & (OP[1]);
 assign c0 = (subAB | subBA); 
 
 // Determine which inputs depending on order of operations
-wire signed [3:0] inputA, inputB; 
+wire signed [W-1:0] inputA, inputB; 
 
 assign inputA = (addAB | subAB | absB) ?  A : B;
 
@@ -64,7 +64,7 @@ assign inputB = B ? (addBA | subBA) ? B : A:
 // Instantiate a 4-bit Adder/Subtractor
 
 // Need internal wires
-wire signed [3:0] operationOutput;
+wire signed [W-1:0] operationOutput;
 wire ovfOutput; 
 
 // c0 determines whether adding, subtracting, abs
@@ -83,6 +83,25 @@ AddSub addSubMain(
 // In two's complement, negative if MSB is 1
 // Convert between then, flip (XOR) and add 1 (think use adder here)
 
+
+wire signed [W-1:0] absValA;
+wire overflowAbsA; 
+assing absValA = 
+
+wire signed [W-1:0]absValB; 
+
+
+wire signed [W-1:0] oppositeA, oppositeB; 
+
+// Flip
+assign oppositeA = A ^ {4{A[3]}};
+assign oppositeB = B ^ {4{B[3]}};
+
+// Add 1
+wire signed [3:0] absA, absB; 
+
+
+assing R = absValA 
 
 
 endmodule //  CombCalc
