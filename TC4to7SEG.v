@@ -16,49 +16,55 @@ module TC4to7SEG(
 	localparam [6:0] negative = 7'b0111111;
 	localparam [6:0] noNegative = 7'b1111111;
 
+	localparam zero = 7'b1000000;;
+	localparam one = 7'b1111001;
+	localparam two = 7'b0100100;
+	localparam three = 7'b0110000;
+	localparam four = 7'b0011001;
+	localparam five = 7'b0010010;
+	localparam six = 7'b0000010;
+	localparam seven = 7'b1111000;
+	localparam eight = 7'b0000000;
+
 
 	initial begin
 		// 0 
-		TCmag[0] = 7'b1000000; 
+		TCmag[0] = {noNegative, zero}; 
 		// 1
-		TCmag[1] = 7'b1111001;
+		TCmag[1] = {noNegative, one};
 		// 2
-		TCmag[2] = 7'b0100100; 
+		TCmag[2] = {noNegative, two};
 		// 3
-		TCmag[3] = 7'b0110000; 
+		TCmag[3] = {noNegative, three};
 		// 4
-		TCmag[4] = 7'b0011001;
+		TCmag[4] = {noNegative, four};
 		// 5
-		TCmag[5] = 7'b0010010; 
+		TCmag[5] = {noNegative, five};
 		// 6
-		TCmag[6] = 7'b0000010; 
+		TCmag[6] = {noNegative, six};
 		// 7
-		TCmag[7] = 7'b1111000;
-		// 8 and -8 
-		TCmag[8] = 7'b0000000; 
+		TCmag[7] = {noNegative, seven};
+		// -8 
+		TCmag[8] = {negative, eight};
 		// -7
-		TCmag[9] = 7'b1111000; 
+		TCmag[9] = {negative, seven};
 		// -6
-		TCmag[10] = 7'b0000010; 
+		TCmag[10] = {negative, six};
 		// -5
-		TCmag[11] = 7'b0010010; 
+		TCmag[11] = {negative, five};
 		// -4
-		TCmag[12] = 7'b0011001; 
+		TCmag[12] = {negative, four};
 		// -3
-		TCmag[13] = 7'b0110000; 
+		TCmag[13] = {negative, three};
 		// -2
-		TCmag[14] = 7'b0100100; 
+		TCmag[14] = {negative, two};
 		// -1
-		TCmag[15] = 7'b1111001; 
+		TCmag[15] = {negative, one};
 		
 	end
 
-	// Magnitude
-	assign Magnitude = TCmag[N];
-
-	// Sign is based on MSB 
-
-	assign Sign = N[3] ? negative : noNegative; 
+    assign Sign = TC_to_7SEG[N][13:7];
+    assign Magnitude = TC_to_7SEG[N][6:0];
 
 
 
