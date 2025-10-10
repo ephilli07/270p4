@@ -50,6 +50,29 @@ initial begin
     // Overflow edge cases
     OP = 3'b000; A = 32760;  B = 100;   #10;
     OP = 3'b001; A = -32760; B = 100;   #10;
+
+        OP = 3'b010; 
+    A  = 0; 
+    B  = -32768;      // 16-bit min negative
+    #10;
+    
+    // OP = 011 (abs(B)) — same effect, different opcode variant
+    OP = 3'b011; 
+    A  = 0; 
+    B  = -32768;
+    #10;
+    
+    // OP = 110 (abs(A))
+    OP = 3'b110; 
+    A  = -32768; 
+    B  = 0;
+    #10;
+    
+    // OP = 111 (abs(A)) — same effect, different opcode variant
+    OP = 3'b111; 
+    A  = -32768; 
+    B  = 0;
+    #10;
 end
 
 

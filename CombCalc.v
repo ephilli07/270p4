@@ -86,7 +86,13 @@ AddSub #(.W(W))addSubMain(
 // Pick A if absA and input pos or vice ver, operation output for other cases
 assign R = (absA & !A[W-1]) ? A : (absB & !B[W-1]) ? B : operationOutput;
 
-assign ovf = ovfOutput;
+wire minA = A[W-1] & ~(|A[W-2:0]);
+wire minB = B[W-1] & ~(|B[W-2:0]);
+
+wire absAOvf = absA & minA;
+wire absBOvf = absB & minB;
+
+assign ovf = ovfOutput | absAOvf | absBOvf;
 
 
 endmodule //  CombCalc

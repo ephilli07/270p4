@@ -37,9 +37,9 @@ SW = 8'b01110001;
 KEY = 3'b000;
 SW = 8'b10011111; 
 #20; 
-// Break even (-8 + 8 = 0)
+// Break even (-7 + 7 = 0)
 KEY = 3'b000;
-SW = 8'b10001000;
+SW = 8'b10010111;
 #20; 
 
 // B + A
@@ -56,7 +56,7 @@ SW = 8'b10011111;
 #20; 
 // Break even 
 KEY = 3'b100;
-SW = 8'b10001000;
+SW = 8'b01111001; // Change
 #20; 
 
 // SUBTRACT TESTS
