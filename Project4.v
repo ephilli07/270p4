@@ -11,16 +11,51 @@ module Project4(
 	wire ovf;
 
 // Instantiate the calculator
-	CombCalc C(KEY, SW[7:4], SW[3:0], R, ovf);
+	CombCalc C(KEY, SW[7:4], SW[3:0], .R(R), .ovf(ovf));
 	
 // Use localparams to define 7SEG display patterns for 'E' and 'all segments OFF'
 localparam [6:0] E = 7'b0000110; 
 localparam [6:0] allSegOff = 7'b1111111; 
 	
 // Instantiate the number displays 
+// Need one TC4to7SEG per display
+
+wire signA, signB, signR, magnitudeA, magnitudeB, magnitudeR; 
+
+TC4to7SEG A(
+	.N(SW[7:4]), 
+	.Sign(signA), 
+	.Magnitude(magnitudeA)
+); 
+
+TC4to7SEG B(
+	.N(SW[3:0]), 
+	.Sign(signB), 
+	.Magnitude(magnitudeB)
+); 
+
+TC4to7SEG R(
+	.N(R), 
+	.Sign(signR), 
+	.Magnitude(magnitudeR)
+); 
+
+// HEX7 sign a
+assign HEX7 = signA;
+// HEX6 magnitude a
+assign HEX6 = magA;
+// HEX5 sing b 
+assign HEX5 = signB;
+// HEX5 magnitude B
+assign HEX4 = magB;
+// HEX3 sign R 
+assign HEX3 = signR;
+// HEX2 magnitude R
+assign HEX2 = magR;
 
 
 // Indicate overflow/no overflow on HEX0
+assign HEX0 = ovf ? E : allSegOff;
 
 
 
