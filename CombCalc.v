@@ -44,18 +44,20 @@ assign absA = (OP[2]) & (OP[1]);
 
 // Depending on the opcode, determine operand (use ternary here)
 // When c0 = 1, subtract (subAB or subBA) 
+
+// We need absA when we got the opcdoe and the sign bit [W-1] is negative
 wire absANeeded = absA & A[W-1];
+// Same for absB
 wire absBNeeded = absB & B[W-1];
 assign c0 = subAB | subBA;
 
 // Determine which inputs depending on order of operations
 wire signed [W-1:0] inputA, inputB; 
 
-assign inputA = absANeeded ? ~A :
-                absBNeeded ? ~B :
-                (addAB | subAB) ? A : B;
+// First input is determined by: do we need absolute value of A/ if so return
+assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
 
-// Feed in a one
+// Feed in a one for adding 1 part 
 localparam [W-1:0] valueOne  = {{(W-1){1'b0}}, 1'b1};
 assign inputB = (absANeeded | absBNeeded) ? valueOne : (addAB | subAB) ? B : A;
 
