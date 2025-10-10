@@ -1,12 +1,10 @@
 // File Name: CombCalc.v
 module CombCalc #(parameter W = 16)(
 	input [2:0] OP,
-	input signed [3:0] A, B,
-	output signed [3:0] R,
+	input signed [W-1:0] A, B,
+	output signed [W-1:0] R,
 	output ovf
 );
-
-	wire signed [3:0] X, Y;
 	wire c0;
 
 // Prefix Circuit
@@ -51,14 +49,9 @@ assign c0 = (subAB | subBA) | ((absA & A[W-1]) | (absB & B[W-1]));
 // Determine which inputs depending on order of operations
 wire signed [W-1:0] inputA, inputB; 
 
-assign inputA = (absA) ? (~A) :
-                     (absB) ? (~B) :
-                     (addAB | subAB) ? A :
-                     B;
+assign inputA = (absA) ? (~A) : (absB) ? (~B) : (addAB | subAB) ? A : B;
 
-assign inputB = (absA | absB) ? (W'd0) :
-                     (addAB | subAB) ? B :
-                     A;
+assign inputB = (absA | absB) ? (W'd0) : (addAB | subAB) ? B : A;
 
 // OP[2] OP[1] OP[0]
 // A + B  A B 0 
@@ -74,7 +67,7 @@ wire ovfOutput;
 
 // c0 determines whether adding, subtracting, abs
 // Instantiate and do adder
-AddSub addSubMain(
+AddSub #(.W(W))addSubMain(
 	.A(inputA),
 	.B(inputB), 
 	.c0(c0), 
@@ -82,9 +75,7 @@ AddSub addSubMain(
 	.ovf(ovfOutput)
 );
 
-assign R = (absA & !A[W-1]) ? A :
-           (absB & !B[W-1]) ? B :
-           operationOutput;
+assign R = (absA & !A[W-1]) ? A : (absB & !B[W-1]) ? B : operationOutput;
 
 assign ovf = ovfOutput;
 
