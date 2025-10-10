@@ -11,7 +11,7 @@ module Project4(
 	wire ovf;
 
 // Instantiate the calculator
-CombCalc C (
+CombCalc #(.W(4)) C(
     .OP(KEY),
     .A(SW[7:4]),
     .B(SW[3:0]),
