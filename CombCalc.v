@@ -52,7 +52,7 @@ wire signed [W-1:0] inputA, inputB;
 
 assign inputA = (absA) ? (~A) : (absB) ? (~B) : (addAB | subAB) ? A : B;
 
-assign inputB = (absA | absB) ? (W'd0) : (addAB | subAB) ? B : A;
+assign inputB = (absA | absB) ? 0 : (addAB | subAB) ? B : A;
 
 // OP[2] OP[1] OP[0]
 // A + B  A B 0 
