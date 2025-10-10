@@ -11,7 +11,14 @@ module Project4(
 	wire ovf;
 
 // Instantiate the calculator
-	CombCalc C(KEY, SW[7:4], SW[3:0], .R(R), .ovf(ovf));
+CombCalc C (
+    .OP(KEY),
+    .A(SW[7:4]),
+    .B(SW[3:0]),
+    .R(R),
+    .ovf(ovf)
+);
+
 	
 // Use localparams to define 7SEG display patterns for 'E' and 'all segments OFF'
 localparam [6:0] E = 7'b0000110; 
@@ -51,7 +58,7 @@ assign HEX7 = signA;
 assign HEX6 = magnitudeA;
 // HEX5 sing b 
 assign HEX5 = signB;
-// HEX5 magnitude B
+// HEX4s magnitude B
 assign HEX4 = magnitudeB;
 // HEX3 sign R 
 assign HEX3 = signR;
