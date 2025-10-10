@@ -99,28 +99,108 @@ SW = 8'b10011001;
 // ABSOLUTE VALUE TESTS
 
 // absB with 010
-// Basic  abs(-8)
-KEY = 3b'010
-SW = 
+// Basic  abs(-3)
+KEY = 3'b010
+SW = 8'b01011101
 #20;
 // Positive  abs(7)
-
+KEY = 3'b010
+SW = 8'b01010111
+#20;
 // Negative abs(-4)
+KEY = 3'b010
+SW = 8'b01011100
+#20;
 
 // Zero abs(0)
+KEY = 3'b010
+SW = 8'b01010000
+#20;
 
-// Overflow
+// Overflow becase 8 doesn't exist
+KEY = 3'b010
+SW = 8'b01011000
+#20;
 
-// abs with 011
+// absB with 011
+// Basic  abs(-3)
+KEY = 3'b011
+SW = 8'b01011101
+#20;
+
+// Positive  abs(7)
+KEY = 3'b011
+SW = 8'b01010111
+#20;
+// Negative abs(-4)
+KEY = 3'b011
+SW = 8'b01011100
+#20;
+
+// Zero abs(0)
+KEY = 3'b011
+SW = 8'b01010000
+#20;
+
+// Overflow becase 8 doesn't exist
+KEY = 3'b011
+SW = 8'b01011000
+#20;
 
 
 // absA with 110 
-// absA with 111
-// Basic  
-// Positive  
-// Negative 
-// Zero
+
+// Basic  abs(-3)
+KEY = 3'b110
+SW = 8'b11010101
+#20;
+
+// Positive
+KEY = 3'b110
+SW = 8'b01110101
+#20;
+
+// Negative
+KEY = 3'b110
+SW = 8'b11000101
+#20;
+
+// Zero 
+KEY = 3'b110
+SW = 8'b00000101
+#20;
+
 // Overflow
+KEY = 3'b110
+SW = 8'b10000101
+#20;
+
+// absA with 111
+
+// Basic  abs(-3)
+KEY = 3'b111
+SW = 8'b11010101
+#20;
+
+// Positive
+KEY = 3'b111
+SW = 8'b01110101
+#20;
+
+// Negative
+KEY = 3'b111
+SW = 8'b11000101
+#20;
+
+// Zero 
+KEY = 3'b111
+SW = 8'b00000101
+#20;
+
+// Overflow
+KEY = 3'b111
+SW = 8'b10000101
+#20;
 
 
 end
