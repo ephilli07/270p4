@@ -12,7 +12,7 @@ module AddSub
 	wire [W:0] c;                            // Carry signals
 	wire [W-1:0] mask; 
 	// For subtraction just add the opposite
-	wire[W-1:0] B_sub;
+	wire[W-1:0] Bsub;
 
 	// Initialize c[0]
 	assign c[0] = c0; 
@@ -21,7 +21,7 @@ module AddSub
 	// Create mask 
 	// Apply mask for subtraction
 	assign mask = {W{c0}};
-	assign B_sub = B ^ mask;
+	assign Bsub = B ^ mask;
 
 	// Use generate to instantiate and "chain" W full adders 
 	genvar i; 
@@ -30,7 +30,7 @@ module AddSub
 			// Instantiate FullAdder
 			FullAdder adder(
 				.a(A[i]), 
-				.b(B_sub[i]),
+				.b(Bsub[i]),
 				.cin(c[i]),
 				.s(R[i]), 
 				.cout(c[i + 1]) // The final element
@@ -43,6 +43,9 @@ module AddSub
 
 
 // Overflow is determined 
-assign ovf = c[W] ^ c[W-1];
+wire aMSB = A[W-1];
+wire bMSB = Bsub[W-1];
+wire rMSB = R[W-1];
+assign ovf = (~(aMSB ^ bMSB)) & (aMSB ^ rMSB);
 
 endmodule // AddSub
