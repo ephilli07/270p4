@@ -5,7 +5,8 @@ module CombCalc #(parameter W = 16)(
 	output signed [W-1:0] R,
 	output ovf
 );
-	wire c0;
+
+
 
 // Prefix Circuit
 // Should choose operation based on opcode and pass into "R"
@@ -43,7 +44,7 @@ assign absA = (OP[2]) & (OP[1]);
 
 // Depending on the opcode, determine operand (use ternary here)
 // When c0 = 1, subtract (subAB or subBA) 
-
+wire c0;
 assign c0 = (subAB | subBA) | ((absA & A[W-1]) | (absB & B[W-1]));
 
 // Determine which inputs depending on order of operations
@@ -75,6 +76,7 @@ AddSub #(.W(W))addSubMain(
 	.ovf(ovfOutput)
 );
 
+// Pick A if absA and input pos or vice ver, operation output for other cases
 assign R = (absA & !A[W-1]) ? A : (absB & !B[W-1]) ? B : operationOutput;
 
 assign ovf = ovfOutput;
