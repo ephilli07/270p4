@@ -46,14 +46,19 @@ assign absA = (OP[2]) & (OP[1]);
 // Depending on the opcode, determine operand (use ternary here)
 // When c0 = 1, subtract (subAB or subBA) 
 
-assign c0 = (subAB | subBA); 
+assign c0 = (subAB | subBA) | ((absA & A[W-1]) | (absB & B[W-1]));
 
 // Determine which inputs depending on order of operations
 wire signed [W-1:0] inputA, inputB; 
 
-assign inputA = (addAB | subAB | absB) ?  A : B;
+assign inputA = (absA) ? (~A) :
+                     (absB) ? (~B) :
+                     (addAB | subAB) ? A :
+                     B;
 
-assign inputB = B ? (addBA | subBA) ? B : A:
+assign inputB = (absA | absB) ? (W'd0) :
+                     (addAB | subAB) ? B :
+                     A;
 
 // OP[2] OP[1] OP[0]
 // A + B  A B 0 
@@ -77,31 +82,11 @@ AddSub addSubMain(
 	.ovf(ovfOutput)
 );
 
+assign R = (absA & !A[W-1]) ? A :
+           (absB & !B[W-1]) ? B :
+           operationOutput;
 
-// ABSOLUTE VALUE 
-
-// In two's complement, negative if MSB is 1
-// Convert between then, flip (XOR) and add 1 (think use adder here)
-
-
-wire signed [W-1:0] absValA;
-wire overflowAbsA; 
-assing absValA = 
-
-wire signed [W-1:0]absValB; 
-
-
-wire signed [W-1:0] oppositeA, oppositeB; 
-
-// Flip
-assign oppositeA = A ^ {4{A[3]}};
-assign oppositeB = B ^ {4{B[3]}};
-
-// Add 1
-wire signed [3:0] absA, absB; 
-
-
-assing R = absValA 
+assign ovf = ovfOutput;
 
 
 endmodule //  CombCalc
