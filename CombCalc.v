@@ -49,7 +49,7 @@ assign absA = (OP[2]) & (OP[1]);
 assign c0 = (subAB | subBA); 
 
 // Determine which inputs depending on order of operations
-wire inputA, inputB; 
+wire signed [3:0] inputA, inputB; 
 
 assign inputA = (addAB | subAB | absB) ?  A : B;
 
@@ -64,7 +64,7 @@ assign inputB = B ? (addBA | subBA) ? B : A:
 // Instantiate a 4-bit Adder/Subtractor
 
 // Need internal wires
-wire [W-1:0] operationOutput;
+wire signed [3:0] operationOutput;
 wire ovfOutput; 
 
 // c0 determines whether adding, subtracting, abs
