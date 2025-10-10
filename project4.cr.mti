@@ -1,9 +1,9 @@
-N:/270/projects/project4/FullAdder.v {1 {vlog -work work -stats=none N:/270/projects/project4/FullAdder.v
+N:/270/projects/project4/AddSub.v {1 {vlog -work work -stats=none N:/270/projects/project4/AddSub.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module FullAdder
+-- Compiling module AddSub
 
 Top level modules:
-	FullAdder
+	AddSub
 
 } {} {}} N:/270/projects/project4/Project4.v {1 {vlog -work work -stats=none N:/270/projects/project4/Project4.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -12,26 +12,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Project4
 
-} {} {}} N:/270/projects/project4/AddSub.v {1 {vlog -work work -stats=none N:/270/projects/project4/AddSub.v
+} {} {}} N:/270/projects/project4/FullAdder.v {1 {vlog -work work -stats=none N:/270/projects/project4/FullAdder.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module AddSub
+-- Compiling module FullAdder
 
 Top level modules:
-	AddSub
+	FullAdder
 
-} {} {}} N:/270/projects/project4/CombCalc.v {1 {vlog -work work -stats=none N:/270/projects/project4/CombCalc.v
+} {} {}} N:/270/projects/project4/TC4to7SEG.v {1 {vlog -work work -stats=none N:/270/projects/project4/TC4to7SEG.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module CombCalc
+-- Compiling module TC4to7SEG
 
 Top level modules:
-	CombCalc
-
-} {} {}} N:/270/projects/project4/TestBenchCombCalc.v {1 {vlog -work work -stats=none N:/270/projects/project4/TestBenchCombCalc.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module TestBenchCombCalc
-
-Top level modules:
-	TestBenchCombCalc
+	TC4to7SEG
 
 } {} {}} N:/270/projects/project4/TestBench4.v {1 {vlog -work work -stats=none N:/270/projects/project4/TestBench4.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -40,11 +33,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	TestBench4
 
-} {} {}} N:/270/projects/project4/TC4to7SEG.v {1 {vlog -work work -stats=none N:/270/projects/project4/TC4to7SEG.v
+} {} {}} N:/270/projects/project4/TestBenchCombCalc.v {1 {vlog -work work -stats=none N:/270/projects/project4/TestBenchCombCalc.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module TC4to7SEG
+-- Compiling module TestBenchCombCalc
 
 Top level modules:
-	TC4to7SEG
+	TestBenchCombCalc
 
 } {} {}}

@@ -44,16 +44,20 @@ assign absA = (OP[2]) & (OP[1]);
 
 // Depending on the opcode, determine operand (use ternary here)
 // When c0 = 1, subtract (subAB or subBA) 
-wire absCarry = (absA & A[W-1]) | (absB & B[W-1]);
-wire subCarry = subAB | subBA;
-assign c0 = absCarry | subCarry;
+wire absANeeded = absA & A[W-1];
+wire absBNeeded = absB & B[W-1];
+assign c0 = subAB | subBA;
 
 // Determine which inputs depending on order of operations
 wire signed [W-1:0] inputA, inputB; 
 
-assign inputA = (absA) ? (~A) : (absB) ? (~B) : (addAB | subAB) ? A : B;
+assign inputA = absANeeded ? ~A :
+                absBNeeded ? ~B :
+                (addAB | subAB) ? A : B;
 
-assign inputB = (absA | absB) ? 0 : (addAB | subAB) ? B : A;
+// Feed in a one
+localparam [W-1:0] valueOne  = {{(W-1){1'b0}}, 1'b1};
+assign inputB = (absANeeded | absBNeeded) ? valueOne : (addAB | subAB) ? B : A;
 
 // OP[2] OP[1] OP[0]
 // A + B  A B 0 
