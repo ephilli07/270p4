@@ -46,8 +46,12 @@ assign absA = (OP[2]) & (OP[1]);
 // When c0 = 1, subtract (subAB or subBA) 
 
 // We need absA when we got the opcdoe and the sign bit [W-1] is negative
-wire absANeeded = absA & A[W-1];
-wire absBNeeded = absB & B[W-1];
+wire absANeeded;
+assign absANeeded = absA ? A[W-1] : 1'b0;
+
+wire absBNeeded;
+assign absBNeeded = absB ? B[W-1] : 1'b0;
+
 assign c0 = subAB | subBA | absANeeded | absBNeeded;
 
 // Determine which inputs depending on order of operations
@@ -88,11 +92,11 @@ assign R = (absA & ~A[W-1]) ? A : (absB & ~B[W-1]) ? B : operationOutput;
 
 wire minAzero;
 assign minAzero = ~A[0] & ~A[1] & ~A[2];
-wire minA = A[3] & minA_is_zero;
+wire minA = A[3] & minAzero;
 
 wire minBZero;
 assign minBZero = ~B[0] & ~B[1] & ~B[2];
-wire minB = B[3] & minB_is_zero;
+wire minB = B[3] & minBZero;
 
 wire absAOvf = absA & minA;
 wire absBOvf = absB & minB;
