@@ -1,8 +1,8 @@
 // File Name: CombCalc.v
 module CombCalc #(parameter W = 16)(
 	input [2:0] OP,
-	input signed [W-1:0] A, B,
-	output signed [W-1:0] R,
+	input  [W-1:0] A, B,
+	output  [W-1:0] R,
 	output ovf
 );
 

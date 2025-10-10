@@ -3,9 +3,9 @@
 module AddSub
 	#(parameter W = 16)	              // Default width
 	(
-		input signed [W-1:0] A, B,       // W-bit TC inputs
+		input  [W-1:0] A, B,       // W-bit TC inputs
 		input c0,                               // Carry-in
-		output signed [W-1:0] R,         // W-bit TC output
+		output  [W-1:0] R,         // W-bit TC output
 		output ovf                             // Overflow signal
 	);
 	
@@ -46,6 +46,6 @@ module AddSub
 wire aMSB = A[W-1];
 wire bMSB = Bsub[W-1];
 wire rMSB = R[W-1];
-assign ovf = (~(aMSB ^ bMSB)) & (aMSB ^ rMSB);
+assign ovf = (aMSB & bMSB & ~rMSB) | (~aMSB & ~bMSB & rMSB);
 
 endmodule // AddSub
