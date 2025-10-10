@@ -48,15 +48,15 @@ TC4to7SEG Rinst(
 // HEX7 sign a
 assign HEX7 = signA;
 // HEX6 magnitude a
-assign HEX6 = magA;
+assign HEX6 = magnitudeA;
 // HEX5 sing b 
 assign HEX5 = signB;
 // HEX5 magnitude B
-assign HEX4 = magB;
+assign HEX4 = magnitudeB;
 // HEX3 sign R 
 assign HEX3 = signR;
 // HEX2 magnitude R
-assign HEX2 = magR;
+assign HEX2 = magnitudeR;
 
 
 // Indicate overflow/no overflow on HEX0
