@@ -12,12 +12,23 @@ module TestBench4();
 	wire ovf;
 
 // Instantiate the calculator and number converters
-CombCalc calculator();
+Project4 calculator(
+	.KEY(KEY),
+	.SW(SW), 
+	.HEX7(HEX7), 
+	.HEX6(HEX6), 
+	.HEX5(HEX5), 
+	.HEX4(HEX4), 
+	.HEX3(HEX3), 
+	.HEX2(HEX2), 
+	.HEX0(HEX0),
+);
+
 
 
 // Specify your test procedures
 initial begin
-	// first test A(0) + B(1) = R(1)
+	// Test 1: A(0) + B(1) = R(1)
 	KEY <= 3'b000; #10;		
 	SW <= 8'b00000000; #10;
     SW <= 8'b00000001; #10;
