@@ -133,13 +133,13 @@ KEY = 3'b011;
 SW = 8'b00000111;
 #20;
 // Negative abs(-4)
-KEY = 3'b011
-SW = 8'b00001100
+KEY = 3'b011;
+SW = 8'b00001100;
 #20;
 
 // Zero abs(0)
-KEY = 3'b011
-SW = 8'b00000000
+KEY = 3'b011; 
+SW = 8'b00000000;
 #20;
 
 // Overflow becase 8 doesn't exist
