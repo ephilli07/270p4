@@ -5,7 +5,7 @@ module FullAdder(
 	);
 
 // Behavioral specification of FA
-s = a ^ b ^ cin; 
-cout = (a & b) | (cin & (a ^ b)); 
+assign s = (a ^ b ^ cin); 
+assign cout = (a & b) | (cin & (a ^ b)); 
 
 endmodule // FullAdder

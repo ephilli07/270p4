@@ -1,0 +1,131 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/vapps/intelFPGA_lite/20.1
+vAddSub
+!s110 1760107640
+!i10b 1
+!s100 f6hc;383C2C2AzMmaSg7:3
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IaMLfgNQW08X:_bSN5fY152
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dN:/270/projects/project4
+w1759928139
+8N:/270/projects/project4/AddSub.v
+FN:/270/projects/project4/AddSub.v
+!i122 0
+L0 3 46
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1760107639.000000
+!s107 N:/270/projects/project4/AddSub.v|
+!s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/AddSub.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@add@sub
+vFullAdder
+!s110 1760107746
+!i10b 1
+!s100 FDjEjO@KGjZHAfaG:Ykl^1
+R0
+Ib15@Pn_[P^i7G0Eh:Rj6B3
+R1
+R2
+w1760107720
+8N:/270/projects/project4/FullAdder.v
+FN:/270/projects/project4/FullAdder.v
+!i122 4
+L0 2 10
+R3
+r1
+!s85 0
+31
+!s108 1760107745.000000
+!s107 N:/270/projects/project4/FullAdder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/FullAdder.v|
+!i113 1
+R4
+R5
+n@full@adder
+vProject4
+!s110 1760107643
+!i10b 1
+!s100 XV`:mOl0:XbliRXaF1kD00
+R0
+I>UEZPHzdCA6;RL>GizVdK0
+R1
+R2
+w1759872385
+8N:/270/projects/project4/Project4.v
+FN:/270/projects/project4/Project4.v
+!i122 1
+L0 2 21
+R3
+r1
+!s85 0
+31
+!s108 1760107642.000000
+!s107 N:/270/projects/project4/Project4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/Project4.v|
+!i113 1
+R4
+R5
+n@project4
+vTC4to7SEG
+!s110 1760107644
+!i10b 1
+!s100 d[7C=>^zg3QmhzF0c8Y3h2
+R0
+IhAnJ?W=cCoaG<UnY5CS=m1
+R1
+R2
+w1759872389
+8N:/270/projects/project4/TC4to7SEG.v
+FN:/270/projects/project4/TC4to7SEG.v
+!i122 2
+L0 3 14
+R3
+r1
+!s85 0
+31
+!s108 1760107643.000000
+!s107 N:/270/projects/project4/TC4to7SEG.v|
+!s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TC4to7SEG.v|
+!i113 1
+R4
+R5
+n@t@c4to7@s@e@g
+vTestBench4
+!s110 1760107645
+!i10b 1
+!s100 OcSK;<3TZYRHmgnkE[7kg2
+R0
+IVIYVkIeG9?F[:6g>CXOj<0
+R1
+R2
+w1759873207
+8N:/270/projects/project4/TestBench4.v
+FN:/270/projects/project4/TestBench4.v
+!i122 3
+L0 3 44
+R3
+r1
+!s85 0
+31
+!s108 1760107644.000000
+!s107 N:/270/projects/project4/TestBench4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TestBench4.v|
+!i113 1
+R4
+R5
+n@test@bench4
