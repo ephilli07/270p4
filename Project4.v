@@ -14,9 +14,14 @@ module Project4(
 	CombCalc C(KEY, SW[7:4], SW[3:0], R, ovf);
 	
 // Use localparams to define 7SEG display patterns for 'E' and 'all segments OFF'
+localparam [6:0] E = 7'b0000110; 
+localparam [6:0] allSegOff = 7'b1111111; 
 	
 // Instantiate the number displays 
 
+
 // Indicate overflow/no overflow on HEX0
+
+
 
 endmodule // Project4
