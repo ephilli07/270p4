@@ -7,7 +7,7 @@ module CombCalc #(parameter W = 16)(
 );
 
 
-
+wire c0; 
 // Prefix Circuit
 // Should choose operation based on opcode and pass into "R"
 
@@ -44,8 +44,9 @@ assign absA = (OP[2]) & (OP[1]);
 
 // Depending on the opcode, determine operand (use ternary here)
 // When c0 = 1, subtract (subAB or subBA) 
-wire c0;
-assign c0 = (subAB | subBA) | ((absA & A[W-1]) | (absB & B[W-1]));
+wire absCarry = (absA & A[W-1]) | (absB & B[W-1]);
+wire subCarry = subAB | subBA;
+assign c0 = absCarry | subCarry;
 
 // Determine which inputs depending on order of operations
 wire signed [W-1:0] inputA, inputB; 
