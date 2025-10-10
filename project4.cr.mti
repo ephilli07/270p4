@@ -26,13 +26,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	FullAdder
 
-} {} {}} N:/270/projects/project4/CombCalc.v {1 {vlog -work work -stats=none N:/270/projects/project4/CombCalc.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module CombCalc
-
-Top level modules:
-	CombCalc
-
 } {} {}} N:/270/projects/project4/TestBench4.v {1 {vlog -work work -stats=none N:/270/projects/project4/TestBench4.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module TestBench4
