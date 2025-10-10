@@ -29,42 +29,42 @@ module TC4to7SEG(
 
 	initial begin
 		// 0 
-		TCmag[0] = {noNegative, zero}; 
+		TCmag[0] = zero; 
 		// 1
-		TCmag[1] = {noNegative, one};
+		TCmag[1] = one;
 		// 2
-		TCmag[2] = {noNegative, two};
+		TCmag[2] = two;
 		// 3
-		TCmag[3] = {noNegative, three};
+		TCmag[3] = three;
 		// 4
-		TCmag[4] = {noNegative, four};
+		TCmag[4] = four;
 		// 5
-		TCmag[5] = {noNegative, five};
+		TCmag[5] = five;
 		// 6
-		TCmag[6] = {noNegative, six};
+		TCmag[6] = six;
 		// 7
-		TCmag[7] = {noNegative, seven};
+		TCmag[7] = seven;
 		// -8 
-		TCmag[8] = {negative, eight};
+		TCmag[8] = 7'b0000000;
 		// -7
-		TCmag[9] = {negative, seven};
+		TCmag[9] = seven;
 		// -6
-		TCmag[10] = {negative, six};
+		TCmag[10] = six;
 		// -5
-		TCmag[11] = {negative, five};
+		TCmag[11] = five;
 		// -4
-		TCmag[12] = {negative, four};
+		TCmag[12] = four;
 		// -3
-		TCmag[13] = {negative, three};
+		TCmag[13] = three;
 		// -2
-		TCmag[14] = {negative, two};
+		TCmag[14] = two;
 		// -1
-		TCmag[15] = {negative, one};
+		TCmag[15] = one;
 		
 	end
 
-    assign Sign = TC_to_7SEG[N][13:7];
-    assign Magnitude = TC_to_7SEG[N][6:0];
+   	assign Magnitude = TCmag[N];
+    assign Sign = N[3] ? negative : noNegative;
 
 
 
