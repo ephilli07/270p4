@@ -62,7 +62,7 @@ assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
 
 
 // Feed in a one for adding 1 part 
-localparam [3:0] valueOne = 4'b0001;
+wire [3:0] valueOne = 4'b0001;
 assign inputB = (absANeeded | absBNeeded) ? valueOne : (addAB | subAB) ? B : A;
 
 // OP[2] OP[1] OP[0]
@@ -87,8 +87,15 @@ AddSub #(.W(W))addSubMain(
 	.ovf(ovfOutput)
 );
 
+
+wire notSignA;
+wire notSignB;
+
+assign notSignA = A[W-1] ? 1'b0 : 1'b1;
+assign notSignB = B[W-1] ? 1'b0 : 1'b1;
+
 // Pick A if absA and input pos or vice ver, operation output for other cases
-assign R = (absA & ~A[W-1]) ? A : (absB & ~B[W-1]) ? B : operationOutput;
+assign R = (absA & notSignA) ? A :(absB & notSignB) ? B : operationOutput;
 
 wire minAzero;
 assign minAzero = ~A[0] & ~A[1] & ~A[2];
