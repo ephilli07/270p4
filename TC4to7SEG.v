@@ -13,6 +13,10 @@ module TC4to7SEG(
 	// Declare and load look-up table 
 	reg [6:0] TCmag[0:15];	   // TC4 to 7-segment magnitude Look-up Table each row is 16 bits
 
+	localparam [6:0] negative = 7'b0111111;
+	localparam [6:0] noNegative = 7'b1111111;
+
+
 	initial begin
 		// 0 
 		TCmag[0] = 7'b1000000; 
@@ -30,8 +34,6 @@ module TC4to7SEG(
 		TCmag[6] = 7'b0000010; 
 		// 7
 		TCmag[7] = 7'b1111000;
-
-
 		// 8 and -8 
 		TCmag[8] = 7'b0000000; 
 		// -7
@@ -55,8 +57,7 @@ module TC4to7SEG(
 	assign Magnitude = TCmag[N];
 
 	// Sign is based on MSB 
-	localparam [6:0] negative = 7'b0111111;
-	localparam [6:0] noNegative = 7'b1111111;
+
 	assign Sign = N[3] ? negative : noNegative; 
 
 

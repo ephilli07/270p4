@@ -1,4 +1,11 @@
-N:/270/projects/project4/TestBenchFullAdder.v {1 {vlog -work work -stats=none N:/270/projects/project4/TestBenchFullAdder.v
+N:/270/projects/project4/AddSub.v {1 {vlog -work work -stats=none N:/270/projects/project4/AddSub.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module AddSub
+
+Top level modules:
+	AddSub
+
+} {} {}} N:/270/projects/project4/TestBenchFullAdder.v {1 {vlog -work work -stats=none N:/270/projects/project4/TestBenchFullAdder.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module TestBenchFullAdder
 
@@ -39,12 +46,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	TestBenchCombCalc
-
-} {} {}} N:/270/projects/project4/TC4to7SEG.v {1 {vlog -work work -stats=none N:/270/projects/project4/TC4to7SEG.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module TC4to7SEG
-
-Top level modules:
-	TC4to7SEG
 
 } {} {}}
