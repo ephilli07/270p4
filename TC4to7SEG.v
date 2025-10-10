@@ -15,42 +15,49 @@ module TC4to7SEG(
 
 	initial begin
 		// 0 
-		TCmag[0] = 7'b0000000; 
+		TCmag[0] = 7'b1000000; 
 		// 1
-		TCmag[1] = 7'b0000001;
+		TCmag[1] = 7'b1111001;
 		// 2
-		TCmag[2] = 7'b0000010; 
+		TCmag[2] = 7'b0100100; 
 		// 3
-		TCmag[3] = 7'b0000011; 
+		TCmag[3] = 7'b0110000; 
 		// 4
-		TCmag[4] = 7'b0000100;
+		TCmag[4] = 7'b0011001;
 		// 5
-		TCmag[5] = 7'b0000101; 
+		TCmag[5] = 7'b0010010; 
 		// 6
-		TCmag[6] = 7'b0000110; 
+		TCmag[6] = 7'b0000010; 
 		// 7
-		TCmag[7] = 7'b0000111;
+		TCmag[7] = 7'b1111000;
 
 
 		// 8 and -8 
-		TCmag[8] = 7'b0001110; 
+		TCmag[8] = 7'b0000000; 
 		// -7
-		TCmag[9] = 7'b0000110; 
+		TCmag[9] = 7'b1111000; 
 		// -6
-		TCmag[10] = 7'b1111101; 
+		TCmag[10] = 7'b0000010; 
 		// -5
-		TCmag[11] = 7'b1101101; 
+		TCmag[11] = 7'b0010010; 
 		// -4
-		TCmag[12] = 7'b1100110; 
+		TCmag[12] = 7'b0011001; 
 		// -3
-		TCmag[13] = 7'b1001111; 
+		TCmag[13] = 7'b0110000; 
 		// -2
-		TCmag[14] = 7'b1011011; 
+		TCmag[14] = 7'b0100100; 
 		// -1
-		TCmag[15] = 7'b0000110; 
+		TCmag[15] = 7'b1111001; 
 		
 	end
 
+	// Magnitude
+	assign Magnitude = TCmag[N];
+
+	// Sign is based on MSB 
+	localparam [6:0] negative = 7'b0111111;
+	localparam [6:0] noNegative = 7'b1111111;
+	assign Sign = N[3] ? negative : noNegative; 
 
 
 
