@@ -1,13 +1,12 @@
 `timescale 1ns/1ns
 
-module TestBenchCombCalc(
+module TestBenchCombCalc();
     // Add inputs
     parameter W = 16;
     reg  [2:0] OP;
     reg  signed [W-1:0] A, B;
     wire signed [W-1:0] R;
     wire ovf;
-);
 
 
 // Instantiate CombCalc instance for testing

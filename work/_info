@@ -153,3 +153,27 @@ r1
 R4
 R5
 n@test@bench4
+vTestBenchCombCalc
+!s110 1760108084
+!i10b 1
+!s100 Uf`Zh57NniHiGdV2LVLZN1
+R0
+In3`m>J_M^6ALa8g7`lkL]3
+R1
+R2
+w1760108041
+8N:/270/projects/project4/TestBenchCombCalc.v
+FN:/270/projects/project4/TestBenchCombCalc.v
+!i122 6
+L0 3 54
+R3
+r1
+!s85 0
+31
+!s108 1760108083.000000
+!s107 N:/270/projects/project4/TestBenchCombCalc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TestBenchCombCalc.v|
+!i113 1
+R4
+R5
+n@test@bench@comb@calc
