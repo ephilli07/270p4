@@ -24,24 +24,66 @@ Project4 calculator(
 initial begin
 // ADD TESTS
 
-// Basic add 
-// Positive overflow 
-// Negative overflow
-// Break even 
+// A + B
+// Basic add (4 + 3 = 7)
+KEY = 3'b000;
+SW = 7'b01000011;
+#20; 
+// Positive overflow (7 + 1)
+KEY = 3'b000; 
+SW = 7'b01110001; 
+#20; 
+// Negative overflow (-7 + -1)
+KEY = 3'b000;
+SW = 7'b10011111; 
+#20; 
+// Break even (-8 + 8 = 0)
+KEY = 3'b000;
+SW = 7'b10001000;
+#20; 
 
+// B + A
 // Basic add 
+KEY = 3'b100;
+SW = 7'b01000011;
+#20;
 // Positive overflow 
-// Negative overflow
+KEY = 3'b100; 
+SW = 7'b01110001; 
+// Negative overflow (-7 + -1)
+KEY = 3'b100;
+SW = 7'b10011111; 
+#20; 
 // Break even 
+KEY = 3'b100;
+SW = 7'b10001000;
+#20; 
 
 // SUBTRACT TESTS
-
-// Basic subtract 
+// A - B 001 
+// Basic subtract (5 - 2 = 3)
+KEY = 3'001;
+SW = 7'b001010010;
+#20; 
 // Positive overflow 
+KEY = 3'001;
+SW = 7'b10001000;
+#20; 
 // Negative overflow
+KEY = 3'001;
+SW = 7'b10001000;
+#20; 
 // Break even 
+KEY = 3'001;
+SW = 7'b10001000;
+#20; 
 
+// B - A 101
 // Basic subtract 
+KEY = 3'101;
+SW = 7'b10001000;
+#20; 
+
 // Positive overflow 
 // Negative overflow
 // Break even 
