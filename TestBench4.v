@@ -100,106 +100,106 @@ SW = 8'b10011001;
 
 // absB with 010
 // Basic  abs(-3)
-KEY = 3'b010
-SW = 8'b01011101
+KEY = 3'b010;
+SW = 8'b00001101;
 #20;
 // Positive  abs(7)
-KEY = 3'b010
-SW = 8'b01010111
+KEY = 3'b010;
+SW = 8'b00000111;
 #20;
 // Negative abs(-4)
-KEY = 3'b010
-SW = 8'b01011100
+KEY = 3'b010;
+SW = 8'b00001100;
 #20;
 
 // Zero abs(0)
-KEY = 3'b010
-SW = 8'b01010000
+KEY = 3'b010;
+SW = 8'b00000000;
 #20;
 
 // Overflow becase 8 doesn't exist
-KEY = 3'b010
-SW = 8'b01011000
+KEY = 3'b010;
+SW = 8'b00001000;
 #20;
 
 // absB with 011
 // Basic  abs(-3)
-KEY = 3'b011
-SW = 8'b01011101
+KEY = 3'b011;
+SW = 8'b00001101;
 #20;
 
 // Positive  abs(7)
-KEY = 3'b011
-SW = 8'b01010111
+KEY = 3'b011;
+SW = 8'b00000111;
 #20;
 // Negative abs(-4)
 KEY = 3'b011
-SW = 8'b01011100
+SW = 8'b00001100
 #20;
 
 // Zero abs(0)
 KEY = 3'b011
-SW = 8'b01010000
+SW = 8'b00000000
 #20;
 
 // Overflow becase 8 doesn't exist
-KEY = 3'b011
-SW = 8'b01011000
+KEY = 3'b011;
+SW = 8'b00001000;
 #20;
 
 
 // absA with 110 
 
 // Basic  abs(-3)
-KEY = 3'b110
-SW = 8'b11010101
+KEY = 3'b110;
+SW = 8'b00000101;
 #20;
 
 // Positive
-KEY = 3'b110
-SW = 8'b01110101
+KEY = 3'b110;
+SW = 8'b00000101;
 #20;
 
 // Negative
-KEY = 3'b110
-SW = 8'b11000101
+KEY = 3'b110;
+SW = 8'b00000101;
 #20;
 
 // Zero 
-KEY = 3'b110
-SW = 8'b00000101
+KEY = 3'b110;
+SW = 8'b00000101;
 #20;
 
 // Overflow
-KEY = 3'b110
-SW = 8'b10000101
+KEY = 3'b110;
+SW = 8'b00000101;
 #20;
 
 // absA with 111
 
 // Basic  abs(-3)
-KEY = 3'b111
-SW = 8'b11010101
+KEY = 3'b111;
+SW = 8'b11010000;
 #20;
 
 // Positive
-KEY = 3'b111
-SW = 8'b01110101
+KEY = 3'b111;
+SW = 8'b01110000;
 #20;
 
 // Negative
-KEY = 3'b111
-SW = 8'b11000101
+KEY = 3'b111;
+SW = 8'b11000000;
 #20;
 
 // Zero 
-KEY = 3'b111
-SW = 8'b00000101
+KEY = 3'b111;
+SW = 8'b00000000;
 #20;
 
 // Overflow
-KEY = 3'b111
-SW = 8'b10000101
+KEY = 3'b111;
+SW = 8'b10000000;
 #20;
 
 
