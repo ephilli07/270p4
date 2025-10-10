@@ -28,20 +28,23 @@ Project4 calculator(
 
 // ADD TESTS
 // -------------------------------------------
-// TEST 1 A + B = POSITIVE, NO OVERFLOW (1 + 3 = 4)
+// TEST 1 - BASIC POS POS (A + B = POSITIVE), NO OVERFLOW (1 + 3 = 4)
 // Expected: HEX7/HEX6 1 HEX5/HEX4 3 HEX3/HEX2 4 HEX0 off
 // -------------------------------------------
-// TEST 2 A + B = POSITIVE, OVERFLOW (7 + 1 = 8) 
+// TEST 2 - OVERFLOW POS POS (A + B = POSITIVE), OVERFLOW (7 + 1 = 8)
 // Expected: HEX7/HEX6 7 HEX5/HEX4 1 HEX3/HEX2 8 HEX0 on
 // -------------------------------------------
-// TEST 3 -A + -B = NEGATIVE, OVERFLOW (-5 + -12 = -17) 
-// Expected: HEX7/HEX6 7 HEX5/HEX4 1 HEX3/HEX2 8 HEX0 on
+// TEST 3 - OVERFLOW NEG NEG (-A + -B = NEGATIVE), OVERFLOW (-8 + -2 = -10)
+// Expected: HEX7/HEX6 -8 HEX5/HEX4 -2 HEX3/HEX2 -10 HEX0 on
 // -------------------------------------------
-// TEST 4 A + -B = POSITIVE, OVERFLOW (-5 + -12 = -17) 
-// Expected: HEX7/HEX6 7 HEX5/HEX4 1 HEX3/HEX2 8 HEX0 on
+// TEST 4 - OVERFLOW POS POS A + B = POSITIVE, OVERFLOW (8 + 8 = 16)
+// Expected: HEX7/HEX6 8 HEX5/HEX4 8 HEX0 on
 // -------------------------------------------
-// TEST 5 -A + -B = 0, NO OVERFLOW (-7 + 7 = 0) 
-// Expected: HEX7/HEX6 -7 HEX5/HEX4 7 HEX3/HEX2 0 HEX0 off
+// TEST 5 - NO OVERFLOW NEG NEG (-A + -B = NEGATIVE), NO OVERFLOW (-3 + -2 = -5)
+// Expected: HEX7/HEX6 -3 HEX5/HEX4 -2 HEX3/HEX2 -5 HEX0 off
+// -------------------------------------------
+// TEST 6 - BREAK EVEN NEG POS (-A + B = 0), NO OVERFLOW (-8 + 8 = 0)
+// Expected: HEX7/HEX6 -8 HEX5/HEX4 8 HEX3/HEX2 0 HEX0 off
 
 
 
