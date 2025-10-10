@@ -152,27 +152,27 @@ SW = 8'b00001000;
 
 // Basic  abs(-3)
 KEY = 3'b110;
-SW = 8'b00000101;
+SW = 8'b11010000; 
 #20;
 
-// Positive
+// Positive  abs(7)
 KEY = 3'b110;
-SW = 8'b00000101;
+SW = 8'b01110000; 
 #20;
 
-// Negative
+// Negative  abs(-4)
 KEY = 3'b110;
-SW = 8'b00000101;
+SW = 8'b11000000; 
 #20;
 
-// Zero 
+// Zero abs(0)
 KEY = 3'b110;
-SW = 8'b00000101;
+SW = 8'b00000000; 
 #20;
 
-// Overflow
+// Overflow abs(-8)
 KEY = 3'b110;
-SW = 8'b00000101;
+SW = 8'b10000000; 
 #20;
 
 // absA with 111
