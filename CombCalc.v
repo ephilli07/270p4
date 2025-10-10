@@ -47,7 +47,6 @@ assign absA = (OP[2]) & (OP[1]);
 
 // We need absA when we got the opcdoe and the sign bit [W-1] is negative
 wire absANeeded = absA & A[W-1];
-// Same for absB
 wire absBNeeded = absB & B[W-1];
 assign c0 = subAB | subBA | absANeeded | absBNeeded;
 
@@ -59,7 +58,7 @@ assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
 
 
 // Feed in a one for adding 1 part 
-localparam [W-1:0] valueOne  = {{(W-1){1'b0}}, 1'b1};
+localparam [3:0] valueOne = 4'b0001;
 assign inputB = (absANeeded | absBNeeded) ? valueOne : (addAB | subAB) ? B : A;
 
 // OP[2] OP[1] OP[0]
@@ -85,10 +84,15 @@ AddSub #(.W(W))addSubMain(
 );
 
 // Pick A if absA and input pos or vice ver, operation output for other cases
-assign R = (absA & !A[W-1]) ? A : (absB & !B[W-1]) ? B : operationOutput;
+assign R = (absA & ~A[W-1]) ? A : (absB & ~B[W-1]) ? B : operationOutput;
 
-wire minA = (A[W-1] & ~|A[W-2:0]);
-wire minB = (B[W-1] & ~|B[W-2:0]);
+wire minAzero;
+assign minAzero = ~A[0] & ~A[1] & ~A[2];
+wire minA = A[3] & minA_is_zero;
+
+wire minBZero;
+assign minBZero = ~B[0] & ~B[1] & ~B[2];
+wire minB = B[3] & minB_is_zero;
 
 wire absAOvf = absA & minA;
 wire absBOvf = absB & minB;

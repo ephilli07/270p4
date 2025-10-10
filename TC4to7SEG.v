@@ -16,7 +16,7 @@ module TC4to7SEG(
 	localparam [6:0] negative = 7'b0111111;
 	localparam [6:0] noNegative = 7'b1111111;
 
-	localparam zero = 7'b1000000;;
+	localparam zero = 7'b1000000;
 	localparam one = 7'b1111001;
 	localparam two = 7'b0100100;
 	localparam three = 7'b0110000;

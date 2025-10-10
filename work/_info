@@ -10,7 +10,7 @@ z2
 cModel Technology
 dC:/vapps/intelFPGA_lite/20.1
 vAddSub
-!s110 1760132484
+!s110 1760134913
 !i10b 1
 !s100 6E=S0ZnQ=6]h]_hj<9LhS3
 Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,13 +20,13 @@ Z2 dN:/270/projects/project4
 w1760132118
 8N:/270/projects/project4/AddSub.v
 FN:/270/projects/project4/AddSub.v
-!i122 74
+!i122 83
 L0 3 49
 Z3 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1760132483.000000
+!s108 1760134912.000000
 !s107 N:/270/projects/project4/AddSub.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/AddSub.v|
 !i113 1
@@ -34,7 +34,7 @@ Z4 o-work work
 Z5 tCvgOpt 0
 n@add@sub
 vAddSub_tb
-!s110 1760132490
+!s110 1760134918
 !i10b 1
 !s100 IEz@L<Ci1<U5UZI0aAT4h1
 R0
@@ -44,13 +44,13 @@ R2
 w1760129575
 8N:/270/projects/project4/TestBenchAddSub.v
 FN:/270/projects/project4/TestBenchAddSub.v
-!i122 80
+!i122 88
 L0 3 71
 R3
 r1
 !s85 0
 31
-!s108 1760132489.000000
+!s108 1760134918.000000
 !s107 N:/270/projects/project4/TestBenchAddSub.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TestBenchAddSub.v|
 !i113 1
@@ -58,23 +58,23 @@ R4
 R5
 n@add@sub_tb
 vCombCalc
-!s110 1760132485
+!s110 1760134914
 !i10b 1
-!s100 U476K;N1AL6PCBfGK^45>3
+!s100 UP4j?mIcHbV8b?XX1E4C?1
 R0
-IPNiR5fGW2h=A0R^iU^[Eo1
+IUk<02YjA5JXH=R6X[9eO81
 R1
 R2
-w1760132428
+w1760134620
 8N:/270/projects/project4/CombCalc.v
 FN:/270/projects/project4/CombCalc.v
-!i122 75
-L0 2 97
+!i122 84
+L0 2 98
 R3
 r1
 !s85 0
 31
-!s108 1760132484.000000
+!s108 1760134913.000000
 !s107 N:/270/projects/project4/CombCalc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/CombCalc.v|
 !i113 1
@@ -82,7 +82,7 @@ R4
 R5
 n@comb@calc
 vFullAdder
-!s110 1760132486
+!s110 1760134915
 !i10b 1
 !s100 FDjEjO@KGjZHAfaG:Ykl^1
 R0
@@ -92,13 +92,13 @@ R2
 w1760107720
 8N:/270/projects/project4/FullAdder.v
 FN:/270/projects/project4/FullAdder.v
-!i122 76
+!i122 85
 L0 2 10
 R3
 r1
 !s85 0
 31
-!s108 1760132485.000000
+!s108 1760134914.000000
 !s107 N:/270/projects/project4/FullAdder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/FullAdder.v|
 !i113 1
@@ -106,7 +106,7 @@ R4
 R5
 n@full@adder
 vProject4
-!s110 1760132487
+!s110 1760134916
 !i10b 1
 !s100 L_8Q1YCNE`kS>38JIVLI72
 R0
@@ -116,13 +116,13 @@ R2
 w1760128038
 8N:/270/projects/project4/Project4.v
 FN:/270/projects/project4/Project4.v
-!i122 77
+!i122 86
 L0 2 73
 R3
 r1
 !s85 0
 31
-!s108 1760132486.000000
+!s108 1760134915.000000
 !s107 N:/270/projects/project4/Project4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/Project4.v|
 !i113 1
@@ -130,23 +130,23 @@ R4
 R5
 n@project4
 vTC4to7SEG
-!s110 1760132488
+!s110 1760134999
 !i10b 1
-!s100 8z5P?SX6T`z@HbicmdOMQ0
+!s100 @2DKfVY82c`_fBQeY<[:X1
 R0
-I93?`J<RjakI:ASQ29UT<A0
+Ig1ecQE[cFCQndGC:8=6]i1
 R1
 R2
-w1760112108
+w1760134991
 8N:/270/projects/project4/TC4to7SEG.v
 FN:/270/projects/project4/TC4to7SEG.v
-!i122 78
-L0 3 74
+!i122 91
+L0 3 81
 R3
 r1
 !s85 0
 31
-!s108 1760132487.000000
+!s108 1760134998.000000
 !s107 N:/270/projects/project4/TC4to7SEG.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TC4to7SEG.v|
 !i113 1
@@ -154,7 +154,7 @@ R4
 R5
 n@t@c4to7@s@e@g
 vTestBench4
-!s110 1760132489
+!s110 1760134917
 !i10b 1
 !s100 X61e6:Dl^B7zME<Ld5gWo3
 R0
@@ -164,13 +164,13 @@ R2
 w1760131190
 8N:/270/projects/project4/TestBench4.v
 FN:/270/projects/project4/TestBench4.v
-!i122 79
+!i122 87
 L0 3 206
 R3
 r1
 !s85 0
 31
-!s108 1760132488.000000
+!s108 1760134917.000000
 !s107 N:/270/projects/project4/TestBench4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TestBench4.v|
 !i113 1
@@ -178,7 +178,7 @@ R4
 R5
 n@test@bench4
 vTestBenchCombCalc
-!s110 1760132491
+!s110 1760134919
 !i10b 1
 !s100 RF85R^hMK0dglC178mbJZ0
 R0
@@ -188,13 +188,13 @@ R2
 w1760130530
 8N:/270/projects/project4/TestBenchCombCalc.v
 FN:/270/projects/project4/TestBenchCombCalc.v
-!i122 81
+!i122 89
 L0 3 77
 R3
 r1
 !s85 0
 31
-!s108 1760132490.000000
+Z6 !s108 1760134919.000000
 !s107 N:/270/projects/project4/TestBenchCombCalc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TestBenchCombCalc.v|
 !i113 1
@@ -202,7 +202,7 @@ R4
 R5
 n@test@bench@comb@calc
 vTestBenchFullAdder
-!s110 1760132492
+!s110 1760134920
 !i10b 1
 !s100 2FT;970EAoz4982@?a0`83
 R0
@@ -212,13 +212,13 @@ R2
 w1760107136
 8N:/270/projects/project4/TestBenchFullAdder.v
 FN:/270/projects/project4/TestBenchFullAdder.v
-!i122 82
+!i122 90
 L0 3 21
 R3
 r1
 !s85 0
 31
-!s108 1760132492.000000
+R6
 !s107 N:/270/projects/project4/TestBenchFullAdder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|N:/270/projects/project4/TestBenchFullAdder.v|
 !i113 1

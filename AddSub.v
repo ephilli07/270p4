@@ -43,9 +43,6 @@ module AddSub
 
 
 // Overflow is determined 
-wire aMSB = A[W-1];
-wire bMSB = Bsub[W-1];
-wire rMSB = R[W-1];
-assign ovf = (aMSB & bMSB & ~rMSB) | (~aMSB & ~bMSB & rMSB);
+assign ovf = ( A[W-1] &  Bsub[W-1] & ~R[W-1]) |(~A[W-1] & ~Bsub[W-1] &  R[W-1]);
 
 endmodule // AddSub
