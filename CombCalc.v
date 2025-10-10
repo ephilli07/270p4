@@ -8,12 +8,6 @@ module CombCalc (
 
 
 wire c0; 
-// Prefix Circuit
-// Should choose operation based on opcode and pass into "R"
-
-// PICKING THE CORRECT OPERATION
-
-// Set of operations
 wire addAB, addBA, subAB, subBA, absA, absB;
 
 // Operation code is defined by OP [2:0] which is actually OP[2] OP[1] OP[0] 
@@ -46,7 +40,6 @@ assign c0 = subAB | subBA | absANeeded | absBNeeded;
 wire [3:0] inputA, inputB;
 
 assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
-
 assign inputB = (absANeeded | absBNeeded) ? 4'b0001 : (addAB | subAB) ? B : A;
 
 wire [3:0] operationOutput;
