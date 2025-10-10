@@ -58,16 +58,14 @@ AddSub addSubMain(
 // Abslute value logic 
 wire minAZero = ~A[0] & ~A[1] & ~A[2];
 wire minA = A[3] & minAZero;
-
 wire minBZero = ~B[0] & ~B[1] & ~B[2];
 wire minB = B[3] & minBZero;
-
 wire absAOvf = absA & minA;
 wire absBOvf = absB & minB;
 
 // Final outputs
-assign ovf = ovfOutput | absAOvf | absBOvf;
-assign R = (absA & ~A[3]) ? A : (absB & ~B[3]) ? B : operationOutput;
+assign ovf = (addAB) ? ovfOutput : (subAB) ? ovfOutput : (addBA) ? ovfOutput : (subBA) ? ovfOutput :(absA) ? absAOvf : absBOvf;
+assign R = (addAB) ? operationOutput : (subAB) ? operationOutput : (addBA) ? operationOutput : (subBA) ? operationOutput : (absA & ~A[3]) ? A : (absB & ~B[3]) ? B : operationOutput;
 
 
 endmodule //  CombCalc
