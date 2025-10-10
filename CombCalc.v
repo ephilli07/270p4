@@ -57,6 +57,7 @@ wire signed [W-1:0] inputA, inputB;
 // First input is determined by: do we need absolute value of A/ if so return
 assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
 
+
 // Feed in a one for adding 1 part 
 localparam [W-1:0] valueOne  = {{(W-1){1'b0}}, 1'b1};
 assign inputB = (absANeeded | absBNeeded) ? valueOne : (addAB | subAB) ? B : A;
@@ -88,7 +89,6 @@ assign R = (absA & !A[W-1]) ? A : (absB & !B[W-1]) ? B : operationOutput;
 
 wire minA = (A[W-1] & ~|A[W-2:0]);
 wire minB = (B[W-1] & ~|B[W-2:0]);
-wire minB = (B[W-1] & ~B[W-2:0]);
 
 wire absAOvf = absA & minA;
 wire absBOvf = absB & minB;
