@@ -1,18 +1,17 @@
 // File Name: AddSub.v
 // Parameterized W-bit Adder/Subtractor
-module AddSub
-	#(parameter W = 16)	              // Default width
+module AddSub              // Default width
 	(
-		input  [W-1:0] A, B,       // W-bit TC inputs
+		input  [3:0] A, B,       // W-bit TC inputs
 		input c0,                               // Carry-in
-		output  [W-1:0] R,         // W-bit TC output
+		output  [3:0] R,         // W-bit TC output
 		output ovf                             // Overflow signal
 	);
 	
-	wire [W:0] c;                            // Carry signals
-	wire [W-1:0] mask; 
+	wire [4:0] c;                            // Carry signals
+	wire [3:0] mask; 
 	// For subtraction just add the opposite
-	wire[W-1:0] Bsub;
+	wire[3:0] Bsub;
 
 	// Initialize c[0]
 	assign c[0] = c0; 
@@ -20,29 +19,43 @@ module AddSub
 	// Invert if subtraction for ALL bits using ^
 	// Create mask 
 	// Apply mask for subtraction
-	assign mask = {W{c0}};
+	assign mask = c0 ? 4'b1111 : 4'b0000;
 	assign Bsub = B ^ mask;
 
-	// Use generate to instantiate and "chain" W full adders 
-	genvar i; 
-	generate 
-		for (i = 0; i < W; i = i + 1) begin : loop 
-			// Instantiate FullAdder
-			FullAdder adder(
-				.a(A[i]), 
-				.b(Bsub[i]),
-				.cin(c[i]),
-				.s(R[i]), 
-				.cout(c[i + 1]) // The final element
-			);
-		end
-	endgenerate
+	FullAdder firstAdder(
+		.a(A[0]), 
+		.b(Bsub[0]), 
+		.cin(c[0]), 
+		.s(R[0]), 
+		.cout(c[1])
+	);
+
+	FullAdder secondAdder(
+		.a(A[1]), 
+		.b(Bsub[1]), 
+		.cin(c[1]), 
+		.s(R[1]), 
+		.cout(c[2])
+	);
+
+	FullAdder thirdAdder(
+		.a(A[2]), 
+		.b(Bsub[2]), 
+		.cin(c[2]), 
+		.s(R[2]), 
+		.cout(c[3])
+	);
+
+	FullAdder fourthAdder(
+		.a(A[3]), 
+		.b(Bsub[3]), 
+		.cin(c[3]), 
+		.s(R[3]), 
+		.cout(c[4])
+	);
 
 	// Computes R = A + B + 0 when c0 = 0
 	// Computes R = A + ~B + 1 when c0 = 1 
-
-
-// Overflow is determined 
-assign ovf = ( A[W-1] &  Bsub[W-1] & ~R[W-1]) |(~A[W-1] & ~Bsub[W-1] &  R[W-1]);
+	assign ovf = (A[3] & Bsub[3] & ~R[3]) | (~A[3] & ~Bsub[3] & R[3]);
 
 endmodule // AddSub

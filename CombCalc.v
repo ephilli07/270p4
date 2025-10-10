@@ -1,8 +1,8 @@
 // File Name: CombCalc.v
-module CombCalc #(parameter W = 16)(
+module CombCalc (
 	input [2:0] OP,
-	input  [W-1:0] A, B,
-	output  [W-1:0] R,
+	input  [3:0] A, B,
+	output  [3:0] R,
 	output ovf
 );
 
@@ -36,79 +36,45 @@ assign subBA = (OP[2]) & (~OP[1]) & (OP[0]);
 assign absA = (OP[2]) & (OP[1]); 
 
 
-
-
-
-
-// ADDING AND SUBTRACTING
-
-// Depending on the opcode, determine operand (use ternary here)
-// When c0 = 1, subtract (subAB or subBA) 
-
-// We need absA when we got the opcdoe and the sign bit [W-1] is negative
-wire absANeeded;
-assign absANeeded = absA ? A[W-1] : 1'b0;
-
-wire absBNeeded;
-assign absBNeeded = absB ? B[W-1] : 1'b0;
+// If a or b needed
+wire absANeeded = absA & A[3];
+wire absBNeeded = absB & B[3];
 
 assign c0 = subAB | subBA | absANeeded | absBNeeded;
 
-// Determine which inputs depending on order of operations
-wire signed [W-1:0] inputA, inputB; 
+// Both input values
+wire [3:0] inputA, inputB;
 
-// First input is determined by: do we need absolute value of A/ if so return
 assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
 
+assign inputB = (absANeeded | absBNeeded) ? 4'b0001 : (addAB | subAB) ? B : A;
 
-// Feed in a one for adding 1 part 
-wire [3:0] valueOne = 4'b0001;
-assign inputB = (absANeeded | absBNeeded) ? valueOne : (addAB | subAB) ? B : A;
+wire [3:0] operationOutput;
+wire ovfOutput;
 
-// OP[2] OP[1] OP[0]
-// A + B  A B 0 
-// A - B A B 1
-// B + A B A 0
-// B - A B A 1
-
-// Instantiate a 4-bit Adder/Subtractor
-
-// Need internal wires
-wire signed [W-1:0] operationOutput;
-wire ovfOutput; 
-
-// c0 determines whether adding, subtracting, abs
-// Instantiate and do adder
-AddSub #(.W(W))addSubMain(
+// Instantiate
+AddSub addSubMain(
 	.A(inputA),
-	.B(inputB), 
-	.c0(c0), 
-	.R(operationOutput), 
+	.B(inputB),
+	.c0(c0),
+	.R(operationOutput),
 	.ovf(ovfOutput)
 );
 
 
-wire notSignA;
-wire notSignB;
+// Abslute value logic 
+wire minAZero = ~A[0] & ~A[1] & ~A[2];
+wire minA = A[3] & minAZero;
 
-assign notSignA = A[W-1] ? 1'b0 : 1'b1;
-assign notSignB = B[W-1] ? 1'b0 : 1'b1;
-
-// Pick A if absA and input pos or vice ver, operation output for other cases
-assign R = (absA & notSignA) ? A :(absB & notSignB) ? B : operationOutput;
-
-wire minAzero;
-assign minAzero = ~A[0] & ~A[1] & ~A[2];
-wire minA = A[3] & minAzero;
-
-wire minBZero;
-assign minBZero = ~B[0] & ~B[1] & ~B[2];
+wire minBZero = ~B[0] & ~B[1] & ~B[2];
 wire minB = B[3] & minBZero;
 
 wire absAOvf = absA & minA;
 wire absBOvf = absB & minB;
 
+// Final outputs
 assign ovf = ovfOutput | absAOvf | absBOvf;
+assign R = (absA & ~A[3]) ? A : (absB & ~B[3]) ? B : operationOutput;
 
 
 endmodule //  CombCalc
