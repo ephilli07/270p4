@@ -64,8 +64,10 @@ wire absAOvf = absA & minA;
 wire absBOvf = absB & minB;
 
 // Final outputs
-assign ovf = (addAB) ? ovfOutput : (subAB) ? ovfOutput : (addBA) ? ovfOutput : (subBA) ? ovfOutput :(absA) ? absAOvf : absBOvf;
-assign R = (addAB) ? operationOutput : (subAB) ? operationOutput : (addBA) ? operationOutput : (subBA) ? operationOutput : (absA & absAOvf) ? A : (absB & absBOvf) ? B :(absA & ~A[3]) ? A : (absB & ~B[3]) ? B : operationOutput;
+assign ovf = (addAB) ? ovfOutput : (subAB) ? ovfOutput :(addBA) ? ovfOutput : (subBA) ? ovfOutput : (absA) ? absAOvf :absBOvf;
+// Output the operation for addition or subtraction 
+// for absolute value, output the correct vale
+assign R = (addAB) ? operationOutput : (subAB) ? operationOutput : (addBA) ? operationOutput : (subBA) ? operationOutput :(absA & ~A[3]) ? A :(absB & ~B[3]) ? B :operationOutput;
 
 
 endmodule //  CombCalc
