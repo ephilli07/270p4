@@ -34,13 +34,13 @@ assign absA = (OP[2]) & (OP[1]);
 wire absANeeded = absA & A[3];
 wire absBNeeded = absB & B[3];
 
-assign c0 = subAB | subBA | absANeeded | absBNeeded;
+assign c0 = subAB | subBA;
 
 // Both input values
 wire [3:0] inputA, inputB;
 
 assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
-assign inputB = (absANeeded | absBNeeded) ? 4'b0000 : (addAB | subAB) ? B : A;
+assign inputB = (absANeeded | absBNeeded) ? 4'b0001 : (addAB | subAB) ? B : A;
 
 wire [3:0] operationOutput;
 wire ovfOutput;
