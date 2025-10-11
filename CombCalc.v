@@ -40,7 +40,7 @@ assign c0 = subAB | subBA | absANeeded | absBNeeded;
 wire [3:0] inputA, inputB;
 
 assign inputA = absANeeded ? ~A : absBNeeded ? ~B : (addAB | subAB) ? A : B;
-assign inputB = (absANeeded | absBNeeded) ? 4'b0001 : (addAB | subAB) ? B : A;
+assign inputB = (absANeeded | absBNeeded) ? 4'b0000 : (addAB | subAB) ? B : A;
 
 wire [3:0] operationOutput;
 wire ovfOutput;
@@ -65,6 +65,7 @@ wire absBOvf = absB & minB;
 
 // Final outputs
 assign ovf = (addAB) ? ovfOutput : (subAB) ? ovfOutput :(addBA) ? ovfOutput : (subBA) ? ovfOutput : (absA) ? absAOvf :absBOvf;
+
 // Output the operation for addition or subtraction 
 // for absolute value, output the correct vale
 assign R = (addAB) ? operationOutput : (subAB) ? operationOutput : (addBA) ? operationOutput : (subBA) ? operationOutput :(absA & ~A[3]) ? A :(absB & ~B[3]) ? B :operationOutput;

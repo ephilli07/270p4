@@ -117,6 +117,7 @@ KEY = 3'b010;
 SW = 8'b00000000;
 #20;
 
+
 // Overflow becase 8 doesn't exist
 KEY = 3'b010;
 SW = 8'b00001000;
